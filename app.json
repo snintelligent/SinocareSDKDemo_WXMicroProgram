@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/selectDevice/startpage",
+    "pages/setting/setting",
+    "pages/scanDevices/scanDevices",
+    "pages/connectDetail/deviceDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#c11720",
+    "navigationBarTitleText": "分钟诊所小程序蓝牙SDK Demo",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息用于蓝牙扫描"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+/* pages/scanDevices/scanDevices.wxss */
+.log {
+  width: 90%;
+  left: 5%;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.scroll-list {
+  max-height: 300rpx;
+}
+
+.scan-view {
+  width: 100%;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.scan-view button {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  box-sizing: border-box;
+  font-size: 36rpx;
+  width: 48%;
+}
+
+.devices-summary {
+  margin-top: 60rpx;
+  padding: 20rpx 5%;
+  font-size: 32rpx;
+}
+
+.device-list {
+  height: 400rpx;
+  margin: 100rpx 5%;
+  margin-top: 0;
+  border: 2rpx solid #eee;
+  border-radius: 10rpx;
+  width: auto;
+}
+
+.device-item {
+  border-bottom: 2rpx solid #eee;
+  padding: 20rpx;
+  color: #666;
+  position: relative;
+}
+
+.device-item-hover {
+  background-color: rgba(0, 0, 0, .1);
+}

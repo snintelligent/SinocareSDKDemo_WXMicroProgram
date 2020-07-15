@@ -1,0 +1,23 @@
+{
+  "name": "minute-clinic-sdk-mini-demo",
+  "version": "1.0.0",
+  "description": "minute clinic sdk min demo",
+  "main": "app.js",
+  "dependencies": {
+    "mcbluetoothsdk": "^1.0.22"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://192.168.100.14:3000/Multicriteria/minute-clinic-sdk-mini.git"
+  },
+  "keywords": [
+    "sdk",
+    "demo"
+  ],
+  "author": "intelligent",
+  "license": "ISC"
+}

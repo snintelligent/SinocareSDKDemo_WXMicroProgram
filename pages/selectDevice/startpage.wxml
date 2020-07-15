@@ -1,0 +1,35 @@
+<!--pages/selectDevice/startpage.wxml-->
+<wxs module="constFilter">
+  module.exports.deviceType = function(type) {
+		var rtnTypeObj = {
+			"XZXTY": "血脂血糖仪",
+			"XTNSY": "血糖尿酸仪",
+			"XTY":"血糖仪",
+			"XYJ":"血压计"
+		};
+    return rtnTypeObj[type];
+  }
+</wxs>
+<view class="page-list-header">
+	<h2>选择设备</h2>
+	<view class="icon-block" bindtap='goToSetting'>
+		<icon class="setting"></icon>
+	</view>
+</view>
+<view class="page-list">
+	<view class="select-device-block" wx:for-items="{{deviceList}}" wx:for-item="device" wx:key="name">
+		<view class="cnt">
+				<view class='device-icon'>
+					<image src="{{device.appIconUrl}}"></image>
+				</view>
+				<view class='describle'>
+					<view><text class="name">{{device.deviceName}}</text></view>
+					<view class="type">{{constFilter.deviceType(device.deviceType)}}</view>
+				</view>
+			</view>
+			<view class="fr" style="margin-right: 20rpx" data-prefix="{{device.bluetoothPrefix}}" data-dvt="{{device.appDeviceType}}" data-dvid="{{device.deviceUUId}}" data-bind="{{device.isBind}}" data-name="{{device.deviceName}}" data-key="{{index}}" bindtap='goToBindingOrConnect'>
+        <text style="color: {{device.isBind ? '#67c23a' : '#333'}}">{{device.isBind ? '去连接' : '去绑定'}}</text>
+        <icon class="ico-arrow-right" style="position:relative;top:4rpx"></icon>
+      </view>
+	</view>
+</view>

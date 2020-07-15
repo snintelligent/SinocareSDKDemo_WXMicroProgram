@@ -1,0 +1,42 @@
+<!--pages/scanDevices/scanDevices.wxml-->
+<wxs module="utils">
+  module.exports.max = function(n1, n2) {
+    return Math.max(n1, n2)
+  }
+  module.exports.len = function(arr) {
+    arr = arr || []
+    return arr.length
+  }
+</wxs>
+<view class="page-list-header">
+	<h2>设备列表</h2>
+</view>
+<view class='page-body'>
+  <!-- <button bindtap="scanDeviceList">开始扫描</button>
+  <button bindtap="stopScanDeviceList">结束扫描</button> -->
+  <view class='log'>
+    <view>日志(可滑动查看)：</view>
+    <view>
+      <scroll-view scroll-y="true" class='text-box scroll-list'>
+        <text>{{textLog}}</text>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="scan-view">
+    <button class="btn" bindtap="clearLogs">清空log日志</button>
+  </view>
+  <view class="devices-summary">发现 {{devices.length}} 个相关设备：</view>
+  <scroll-view class="device-list" scroll-y scroll-with-animation>
+    <view wx:for="{{devices}}" wx:key="index" data-device-id="{{item.deviceId}}" data-name="{{item.name || item.localName}}" bindtap="createBLEConnection" class="device-item" hover-class="device-item-hover">
+      <view style="font-size: 16px; color: #333;">{{item.name}}</view>
+      <view style="font-size: 10px">信号强度: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
+      <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
+      <view style="font-size: 10px">MAC地址: {{item.macAddr}}</view>
+      <view style="font-size: 10px">Service数量: {{utils.len(item.advertisServiceUUIDs)}}</view>
+      <view class="fr" style="position:absolute;top:30rpx;right: 20rpx">
+        <text>连接设备</text>
+        <icon class="ico-arrow-right" style="position:relative;top:4rpx"></icon>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,59 @@
+/* pages/connectDetail/deviceDetail.wxss */
+.bluetooth-detail {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+}
+
+.card {
+  border-radius: 10rpx;
+  background-color: #fff;
+  margin: 20rpx;
+  padding: 20rpx;
+  min-height: 500rpx;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, .3);
+}
+
+.list {
+  max-height: 45vh;
+}
+
+.opt-input {
+  width: 80%;
+  position: relative;
+  font-size: 16rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10%;
+}
+
+.input {
+  border: 2rpx solid #ccc;
+  width: 400rpx;
+  padding: 16rpx 20rpx;
+  font-size: 32rpx;
+}
+
+.opt-group {
+  width: 100%;
+  position: absolute;
+  bottom: 6%;
+  font-size: 16rpx;
+}
+
+.opt-btn-block {
+  margin-top: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.opt-btn-block .btn {
+  width: 300rpx;
+  float: left;
+}

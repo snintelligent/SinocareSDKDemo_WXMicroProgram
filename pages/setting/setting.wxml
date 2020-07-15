@@ -1,0 +1,29 @@
+<!--pages/setting/setting.wxml-->
+<view class="page-list-header">
+	<h2>系统设置</h2>
+</view>
+<view class="page-body">
+	<form bindsubmit="formSubmit">
+		<view class="page-section">
+			<view class="weui-cells__title">服务器地址</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_input">
+					<input class="weui-input" name="serverUrl" value="{{serverUrl}}" placeholder="请输入服务器地址" />
+				</view>
+			</view>
+		</view>
+		<view class="page-section">
+			<view class="weui-cells__title">WxSdkKey</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_input">
+					<input class="weui-input" name="wxSdkKey" value="{{wxSdkKey}}" placeholder="请输入WxSdkKey" />
+				</view>
+			</view>
+		</view>
+		<view class="page-section" style="margin-top: 80rpx">
+			<button class='btn' formType="submit">
+				<view>保存</view>
+			</button>
+		</view>
+	</form>
+</view>

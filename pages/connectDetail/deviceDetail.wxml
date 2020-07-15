@@ -1,0 +1,21 @@
+<!--pages/connectDetail/deviceDetail.wxml-->
+<view class='bluetooth-detail'>
+	<view>当前连接的蓝牙设备是：</view>
+	<view>设备名：{{name}}</view>
+	<view>设备ID：{{deviceId}}</view>
+</view>
+<view class='card'>
+	<view>日志(可滑动查看)：</view>
+	<button class='btn' bindtap="clearLogs">清空日志</button>
+	<view>
+		<scroll-view scroll-y="true" class='text-box list'>
+			<text>{{textLog}}</text>y
+		</scroll-view>
+	</view>
+</view>
+<view class='opt-group'>
+	<view class="opt-btn-block">
+		<button class='btn' bindtap="closeConnection">断开蓝牙连接</button>
+		<button class='btn' bindtap="unbindDevice">解除设备绑定</button>
+	</view>
+</view>

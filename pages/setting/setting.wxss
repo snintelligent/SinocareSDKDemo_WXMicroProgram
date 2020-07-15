@@ -1,0 +1,6 @@
+/* pages/setting/setting.wxss */
+.page-header {
+  padding: 30rpx 50rpx;
+  text-align: center;
+  font-size: 52rpx;
+}

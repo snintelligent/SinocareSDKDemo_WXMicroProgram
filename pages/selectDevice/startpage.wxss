@@ -1,0 +1,41 @@
+/* pages/selectDevice/startpage.wxss */
+.select-device-block {
+  margin: 16rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  width: calc(100% - 32rpx);
+  height: 140rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-device-block>view.cnt {
+  display: flex;
+}
+
+.select-device-block .device-icon {
+  position: relative;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.select-device-block .device-icon image {
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+}
+
+.describle .type {
+  color: #999;
+  font-size: 28rpx;
+}
+
+.icon-block {
+  height: 96rpx;
+  line-height: 96rpx;
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+}
