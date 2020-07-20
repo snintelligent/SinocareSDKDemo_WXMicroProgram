@@ -249,8 +249,8 @@ Page({
         if (!device.name && !device.localName) {
           return
         }
-        var macAddrStr = utils.ab2hex(device.advertisData).toUpperCase().replace(/(.{2})/g, '$1-');
-        device.macAddr = macAddrStr.substring(0, macAddrStr.length - 1);
+        var macAddrStr = utils.ab2hex(device.advertisData).toUpperCase().replace(/(.{2})/g, '$1:');
+        device.macAddr = macAddrStr.substring(macAddrStr.length - 18, macAddrStr.length - 1);
         const foundDevices = that.data.devices;
         const idx = utils.inArray(foundDevices, 'deviceId', device.deviceId);
         const data = {};
