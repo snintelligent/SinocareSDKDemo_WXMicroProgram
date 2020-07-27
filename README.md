@@ -1,3 +1,2 @@
-# minute-clinic-sdk-mini
-
-微信小程序蓝牙sdk
+# minute-clinic-sdk-mini-demo
+微信小程序蓝牙sdk demo
