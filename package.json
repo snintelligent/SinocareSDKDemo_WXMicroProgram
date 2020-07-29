@@ -4,7 +4,7 @@
   "description": "minute clinic sdk min demo",
   "main": "app.js",
   "dependencies": {
-    "mcbluetoothsdk": "^1.0.26"
+    "mcbluetoothsdk": "^2.0.2"
   },
   "devDependencies": {},
   "scripts": {
