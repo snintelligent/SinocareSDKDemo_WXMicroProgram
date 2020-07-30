@@ -26,7 +26,7 @@ minute-clinic-sdk-mini主要是通过npm包的方式提供给第三方。
 由Sinocare提供。
 
 ### 2.2 SDK安装
-    npm install mcbluetoothsdk --save
+    npm install mcbluetoothsdk@2.0.2 --save
 
 ### 2.3 配置wxSdkKey和小程序环境
 在需要接入的小程序的app.js的全局变量中设置sdkAccessToken和wxSdkKey字段并填写获取的wxSdkKey，示例如下：
@@ -95,6 +95,14 @@ mcbSdk.stopScanDeviceList(needHint)
 调用方式：
 ```JavaScript
 mcbSdk.startConnectDevice(deviceType, deviceId, successCallBack, failCallback);
+```
+说明：<br>
+successCallBack除了提示设备连接成功以外，用于监听仪器连接成功后，获取返回仪器数据传输的数据。
+示例：<br>
+```JavaScript
+mcbSdk.startConnectDevice(deviceType, deviceId, function(data) {
+    console.log("仪器回调的数据：" + JSON.stringify(data))
+})
 ```
 
 ### 3.6 断开设备连接
