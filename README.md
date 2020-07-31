@@ -124,13 +124,13 @@ mcbSdk.getCurrentDeviceStatus(deviceId);
 boolean
 
 ## 4 SDK目前支持蓝牙设备类型
-设备名称 | 设备（deviceType）
-:-: | :-:
-掌越血脂血糖仪 | 2
-UG-11系列血糖尿酸仪 | 26
-WL-1型蓝牙血糖仪 | 10
-安稳+Air血糖仪 | 25
-安诺心蓝牙血压计 | 13
+设备名称 | 设备类型（deviceType） | 蓝牙前缀
+:-: | :-: | :-:
+掌越血脂血糖仪 | 2 | SLX
+UG-11系列血糖尿酸仪 | 26 | BDE_WEIXIN_TTM
+WL-1型蓝牙血糖仪 | 10 | Sinocare
+安稳+Air血糖仪 | 25 | BDE_WEIXIN_TTM
+安诺心蓝牙血压计 | 13 | ClinkBlood
 
 ## 5 常见问题  
     1、 问题：SDKToken无效，调用方法失败
