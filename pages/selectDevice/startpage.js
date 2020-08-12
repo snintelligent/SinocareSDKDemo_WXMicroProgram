@@ -2,6 +2,8 @@ var app = getApp();
 var utils = require("../../utils/util.js");
 import sdkAction from 'mcbluetoothsdk';
 // var sdkAction = require("../../mcBluetoothSDK/src/action");
+const sampleType = require("../../mcBluetoothSDK/src/const/sampleType.js");
+const units = require("../../mcBluetoothSDK/src/const/unit.js");
 
 Page({
   /**
@@ -103,12 +105,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    var idx = this.data.deviceList.findIndex(function(o) {
-      return o.appDeviceType === 26;
-    })
-    console.log("findIndex i: " + idx);
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -158,13 +155,13 @@ Page({
         cancelText: "多设备",
         success(res) {
           if (res.confirm) {
-            sdkAction.init(e.currentTarget.dataset.dvt, e.currentTarget.dataset.dvid, function() {
+            sdkAction.init(e.currentTarget.dataset.dvt, e.currentTarget.dataset.dvid, function () {
               wx.reLaunch({
                 url: '/pages/connectDetail/deviceDetail?name=' + encodeURIComponent(e.currentTarget.dataset.name) + '&deviceId=' + encodeURIComponent(e.currentTarget.dataset.dvid) + '&deviceType=' + encodeURIComponent(e.currentTarget.dataset.dvt)
               });
             })
           } else if (res.cancel) {
-            sdkAction.initMulti(function() {
+            sdkAction.initMulti(function () {
               wx.reLaunch({
                 url: '/pages/connectDetail/multiDeviceDetail?name=' + encodeURIComponent(e.currentTarget.dataset.name) + '&deviceId=' + encodeURIComponent(e.currentTarget.dataset.dvid) + '&deviceType=' + encodeURIComponent(e.currentTarget.dataset.dvt)
               });

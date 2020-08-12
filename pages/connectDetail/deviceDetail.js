@@ -23,8 +23,9 @@ Page({
     var deviceType = decodeURIComponent(options.deviceType);
     var devname = decodeURIComponent(options.name);
     sdkAction.startConnectDevice(deviceType, devid, function(data) {
+      var log = that.data.textLog + JSON.stringify(data) + "\n";
       that.setData({
-        textLog: JSON.stringify(data)
+        textLog: log
       })
     })
     that.setData({
