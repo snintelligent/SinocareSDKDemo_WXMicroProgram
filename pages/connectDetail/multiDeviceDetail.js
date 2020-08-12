@@ -1,7 +1,7 @@
 // pages/multiDeviceDetail/multiDeviceDetail.js
 var app = getApp();
-// import sdkAction from 'mcbluetoothsdk';
-var sdkAction = require("../../mcBluetoothSDK/src/action");
+import sdkAction from 'mcbluetoothsdk';
+// var sdkAction = require("../../mcBluetoothSDK/src/action");
 
 Page({
   /**
