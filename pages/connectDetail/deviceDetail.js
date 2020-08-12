@@ -77,7 +77,7 @@ Page({
       wx.navigateTo({
         url: '/pages/selectDevice/startpage'
       });
-    })
+    }, true)
   },
   unbindDevice: function() {
     var that = this;
@@ -99,6 +99,6 @@ Page({
       wx.navigateTo({
         url: '/pages/selectDevice/startpage'
       });
-    })
+    }, true)
   }
 })

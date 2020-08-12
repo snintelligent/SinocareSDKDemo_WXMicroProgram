@@ -1,4 +1,5 @@
 var app = getApp();
+var utils = require("../../utils/util.js");
 import sdkAction from 'mcbluetoothsdk';
 // var sdkAction = require("../../mcBluetoothSDK/src/action");
 
@@ -25,7 +26,7 @@ Page({
       deviceType: "XTNSY",
       medicalCodes: "GLU,UA",
       medicalNames: "血糖,血尿酸",
-      bluetoothPrefix: "BDE_WEIXIN_TTM",
+      bluetoothPrefix: "BDE_WEIXIN_TTM,UG11Air",
       networkingMode: "NZLY",
       appIconUrl: "http://img.tmqyt.com/images/174/15828119051330.png",
       isBind: false
@@ -62,13 +63,36 @@ Page({
       networkingMode: "NZLY",
       appIconUrl: "http://img.tmqyt.com/images/7816/15828124491330.png",
       isBind: false
+    }, {
+      appDeviceType: 3,
+      deviceUUId: "",
+      deviceName: "EA-12血糖尿酸测试仪",
+      deviceType: "XTNSY",
+      medicalCodes: "GLU,UA,U-KET",
+      medicalNames: "血糖,尿酸,血酮",
+      bluetoothPrefix: "BDE_WEIXIN_TTM,SNPB,Jin",
+      networkingMode: "WZLY",
+      appIconUrl: "http://img.tmqyt.com/images/3771/15828137991330.png",
+      isBind: false
+    }, {
+      appDeviceType: 12,
+      deviceUUId: "",
+      deviceName: "EA-18血糖尿酸测试仪",
+      deviceType: "XTNSY",
+      medicalCodes: "GLU,UA",
+      medicalNames: "血糖,尿酸",
+      bluetoothPrefix: "BDE_WEIXIN_TTM",
+      networkingMode: "WZLY",
+      appIconUrl: "http://img.tmqyt.com/images/9612/15828138201330.png",
+      isBind: false
     }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
+    utils.intiFindIndex();
     sdkAction.wxAuthentication(app.globalData.wxAccountInfo.miniProgram.appId, app.globalData.wxSdkKey).then((status) => {
       if (status) {
         sdkAction.stopScanDeviceList();
@@ -80,7 +104,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var idx = this.data.deviceList.findIndex(function(o) {
+      return o.appDeviceType === 26;
+    })
+    console.log("findIndex i: " + idx);
   },
 
   /**
@@ -123,10 +150,27 @@ Page({
   goToBindingOrConnect(e) {
     // 连接流程
     if (e.currentTarget.dataset.bind) {
-      sdkAction.init(e.currentTarget.dataset.dvt, e.currentTarget.dataset.dvid, function() {
-        wx.reLaunch({
-          url: '/pages/connectDetail/deviceDetail?name=' + encodeURIComponent(e.currentTarget.dataset.name) + '&deviceId=' + encodeURIComponent(e.currentTarget.dataset.dvid) + '&deviceType=' + encodeURIComponent(e.currentTarget.dataset.dvt)
-        });
+      wx.showModal({
+        title: "提示",
+        content: "请选择单设备或多设备连接",
+        showCancel: true,
+        confirmText: "单设备",
+        cancelText: "多设备",
+        success(res) {
+          if (res.confirm) {
+            sdkAction.init(e.currentTarget.dataset.dvt, e.currentTarget.dataset.dvid, function() {
+              wx.reLaunch({
+                url: '/pages/connectDetail/deviceDetail?name=' + encodeURIComponent(e.currentTarget.dataset.name) + '&deviceId=' + encodeURIComponent(e.currentTarget.dataset.dvid) + '&deviceType=' + encodeURIComponent(e.currentTarget.dataset.dvt)
+              });
+            })
+          } else if (res.cancel) {
+            sdkAction.initMulti(function() {
+              wx.reLaunch({
+                url: '/pages/connectDetail/multiDeviceDetail?name=' + encodeURIComponent(e.currentTarget.dataset.name) + '&deviceId=' + encodeURIComponent(e.currentTarget.dataset.dvid) + '&deviceType=' + encodeURIComponent(e.currentTarget.dataset.dvt)
+              });
+            })
+          }
+        }
       })
     } else { // 绑定流程
       wx.reLaunch({

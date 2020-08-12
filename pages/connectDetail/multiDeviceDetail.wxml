@@ -1,0 +1,39 @@
+<!--pages/multiDeviceDetail/multiDeviceDetail.wxml-->
+<wxs module="constFilter">
+  module.exports.deviceType = function(type) {
+		var rtnTypeObj = {
+			"XZXTY": "血脂血糖仪",
+			"XTNSY": "血糖尿酸仪",
+			"XTY":"血糖仪",
+			"XYJ":"血压计"
+		};
+    return rtnTypeObj[type];
+  }
+</wxs>
+<view class="page-list-header">
+	<h2>多设备连接详情</h2>
+</view>
+<view class="page-list">
+	<view class="select-device-block" wx:for-items="{{deviceList}}" wx:for-item="device" wx:key="name">
+		<view class="cnt">
+				<view class='device-icon'>
+					<image src="{{device.appIconUrl}}"></image>
+				</view>
+				<view class='describle'>
+					<view><text class="name">{{device.deviceName}}</text></view>
+					<view class="type">{{constFilter.deviceType(device.deviceType)}}</view>
+				</view>
+			</view>
+			<view class="fr" style="margin-right: 20rpx">
+        <text style="color: {{device.isBind ? '#67c23a' : '#333'}}">{{device.isConnect ? '已连接' : '未连接'}}</text>
+      </view>
+	</view>
+</view>
+<view class='card'>
+	<view>日志(可滑动查看)：</view>
+	<view>
+		<scroll-view scroll-y="true" class='text-box list'>
+			<text>{{textLog}}</text>
+		</scroll-view>
+	</view>
+</view>
