@@ -131,6 +131,9 @@ UG-11系列血糖尿酸仪 | 26 | BDE_WEIXIN_TTM
 WL-1型蓝牙血糖仪 | 10 | Sinocare
 安稳+Air血糖仪 | 25 | BDE_WEIXIN_TTM
 安诺心蓝牙血压计 | 13 | ClinkBlood
+EA-12血糖尿酸测试仪 | 3 | BDE_WEIXIN_TTM,SNPB,Jin
+EA-18血糖尿酸测试仪 | 12 | BDE_WEIXIN_TTM
+KA-11血糖血酮测试仪 | 4 | BDE_WEIXIN_TTM,SNPB
 
 ## 5 常见问题  
     1、 问题：SDKToken无效，调用方法失败
