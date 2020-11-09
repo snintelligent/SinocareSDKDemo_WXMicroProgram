@@ -2,8 +2,6 @@ var app = getApp();
 var utils = require("../../utils/util.js");
 import sdkAction from 'mcbluetoothsdk';
 // var sdkAction = require("../../mcBluetoothSDK/src/action");
-const sampleType = require("../../mcBluetoothSDK/src/const/sampleType.js");
-const units = require("../../mcBluetoothSDK/src/const/unit.js");
 
 Page({
   /**
