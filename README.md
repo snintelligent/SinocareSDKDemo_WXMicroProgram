@@ -26,7 +26,7 @@ minute-clinic-sdk-mini主要是通过npm包的方式提供给第三方。
 由Sinocare提供。
 
 ### 2.2 SDK安装
-    npm install mcbluetoothsdk@2.0.2 --save
+    npm install mcbluetoothsdk@1.1.0 --save
 
 ### 2.3 配置wxSdkKey和小程序环境
 在需要接入的小程序的app.js的全局变量中设置sdkAccessToken和wxSdkKey字段并填写获取的wxSdkKey，示例如下：
